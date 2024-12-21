@@ -12,7 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrincipalActivity extends AppCompatActivity {
+public class PanaderiaActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +21,9 @@ public class PrincipalActivity extends AppCompatActivity {
 
 
         List<Receta> recetas = new ArrayList<>();
-        recetas.add(new Receta("Paella Valenciana", "Tradicional arroz español con pollo, conejo y verduras", R.drawable.paella_valenciana));
-        recetas.add(new Receta("Lasaña de Carne", "Capas de pasta rellenas de carne, salsa de tomate y queso", R.drawable.lasagna));
-        recetas.add(new Receta("Pollo al Curry", "Pollo cocinado con especias y una cremosa salsa de curry", R.drawable.pollo_curry));
+        recetas.add(new Receta("Pan Rústico", "Pan artesanal con corteza crujiente y miga suave", R.drawable.pan_rustico));
+        recetas.add(new Receta("Croissants", "Deliciosos croissants hojaldrados con mantequilla", R.drawable.croissants));
+        recetas.add(new Receta("Focaccia Italiana", " Pan plano italiano con romero y aceite de oliva", R.drawable.focaccia));
 
 
         ListView listView = findViewById(R.id.list_recetas);
@@ -44,6 +44,7 @@ public class PrincipalActivity extends AppCompatActivity {
             return false;
         });
     }
+
     private void showAboutDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Acerca de")

@@ -12,7 +12,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.recipesapp.activities.EntrantesActivity;
+import com.example.recipesapp.activities.PanaderiaActivity;
+import com.example.recipesapp.activities.PostresActivity;
 import com.example.recipesapp.activities.PrincipalActivity;
+import com.example.recipesapp.activities.ReposteriaActivity;
+import com.example.recipesapp.activities.SegundosActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +46,22 @@ public class MainActivity extends AppCompatActivity {
             });
             btn_principal.setOnClickListener(v -> {
                 Intent intent = new Intent(MainActivity.this, PrincipalActivity.class);
+                startActivity(intent);
+            });
+            btn_segundos.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, SegundosActivity.class);
+                startActivity(intent);
+            });
+            btn_postres.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, PostresActivity.class);
+                startActivity(intent);
+            });
+            btn_reposteria.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, ReposteriaActivity.class);
+                startActivity(intent);
+            });
+            btn_panaderia.setOnClickListener(v -> {
+                Intent intent = new Intent(MainActivity.this, PanaderiaActivity.class);
                 startActivity(intent);
             });
 
