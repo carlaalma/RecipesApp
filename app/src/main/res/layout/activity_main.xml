@@ -1,56 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="2"
-    android:rowCount="3"
-    android:gravity="center"
-    android:layout_margin="16dp">
+    android:orientation="vertical"
+    android:gravity="center">
 
-    <Button
-        android:id="@+id/btn_entrante"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:text="Entrantes"
-        android:background="@drawable/rounded_button" />
+    <!-- Título del Activity -->
+    <TextView
+        android:id="@+id/tv_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Categorías de recetas"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
 
-    <Button
-        android:id="@+id/btn_principal"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:layout_row="0"
-        android:background="@drawable/rounded_button"
-        android:text="Platos \n Principales" />
+    <!-- Contenedor del GridLayout -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:gravity="center"
+        android:layout_margin="16dp">
 
-    <Button
-        android:id="@+id/btn_segundos"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:text="Segundos \n Platos"
-        android:background="@drawable/rounded_button" />
+        <!-- Botones del GridLayout -->
+        <Button
+            android:id="@+id/btn_entrante"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:text="Entrantes"
+            android:background="@drawable/rounded_button"
+            android:layout_margin="16dp" />
 
-    <Button
-        android:id="@+id/btn_postres"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:text="Postres"
-        android:background="@drawable/rounded_button" />
+        <Button
+            android:id="@+id/btn_principal"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:text="Principales"
+            android:background="@drawable/rounded_button"
+            android:layout_margin="16dp" />
 
-    <Button
-        android:id="@+id/btn_reposteria"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:text="Repostería"
-        android:background="@drawable/rounded_button" />
+        <Button
+            android:id="@+id/btn_segundos"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:text="Segundos"
+            android:background="@drawable/rounded_button"
+            android:layout_margin="16dp" />
 
-    <Button
-        android:id="@+id/btn_panadería"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:text="Panadería"
-        android:background="@drawable/rounded_button" />
+        <Button
+            android:id="@+id/btn_postres"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:text="Postres"
+            android:background="@drawable/rounded_button"
+            android:layout_margin="16dp" />
 
-</GridLayout>
+        <Button
+            android:id="@+id/btn_reposteria"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:text="Repostería"
+            android:background="@drawable/rounded_button"
+            android:layout_margin="16dp" />
+
+        <Button
+            android:id="@+id/btn_panadería"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:text="Panadería"
+            android:background="@drawable/rounded_button"
+            android:layout_margin="16dp" />
+    </GridLayout>
+</LinearLayout>
+
 
 
 
