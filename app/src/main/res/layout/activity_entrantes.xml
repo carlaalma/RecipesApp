@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="16dp">
+    >
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -17,11 +17,13 @@
         app:itemTextColor="@color/navigation_item_color"
         app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_nav_menu"
+
         />
 
     <ListView
         android:id="@+id/list_recetas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        />
 
 </LinearLayout>

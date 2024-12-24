@@ -1,6 +1,7 @@
 package com.example.recipesapp.activities;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,9 +22,32 @@ public class PanaderiaActivity extends AppCompatActivity {
 
 
         List<Receta> recetas = new ArrayList<>();
-        recetas.add(new Receta("Pan Rústico", "Pan artesanal con corteza crujiente y miga suave", R.drawable.pan_rustico));
-        recetas.add(new Receta("Croissants", "Deliciosos croissants hojaldrados con mantequilla", R.drawable.croissants));
-        recetas.add(new Receta("Focaccia Italiana", " Pan plano italiano con romero y aceite de oliva", R.drawable.focaccia));
+        recetas.add(new Receta(
+                "Pan Rústico",
+                "Pan artesanal con corteza crujiente y miga suave.",
+                "",
+                "Harina, levadura, sal, agua",
+                "1. Mezcla los ingredientes y amasa. \n2. Deja fermentar. \n3. Hornea hasta que tenga una corteza crujiente.",
+                R.drawable.pan_rustico
+        ));
+
+        recetas.add(new Receta(
+                "Croissants",
+                "Deliciosos croissants hojaldrados con mantequilla.",
+                "",
+                "Harina, mantequilla, azúcar, levadura, leche",
+                "1. Prepara la masa y añade capas de mantequilla. \n2. Dobla y refrigera varias veces. \n3. Hornea hasta que estén dorados.",
+                R.drawable.croissants
+        ));
+
+        recetas.add(new Receta(
+                "Focaccia Italiana",
+                "Pan plano italiano con romero y aceite de oliva.",
+                "",
+                "Harina, agua, levadura, aceite de oliva, romero, sal",
+                "1. Prepara la masa y deja fermentar. \n2. Añade aceite de oliva y romero. \n3. Hornea hasta que esté dorada.",
+                R.drawable.focaccia
+        ));
 
 
         ListView listView = findViewById(R.id.list_recetas);
@@ -43,12 +67,20 @@ public class PanaderiaActivity extends AppCompatActivity {
             }
             return false;
         });
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Receta selectedReceta = (Receta) parent.getItemAtPosition(position); // Obtener la receta seleccionada
+            Intent intent = new Intent(PanaderiaActivity.this, DetalleRecetaActivity.class);
+            intent.putExtra("receta", selectedReceta); // Pasar la receta seleccionada
+            startActivity(intent);
+        });
+
     }
 
     private void showAboutDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Acerca de")
-                .setMessage("Esta actividad muestra recetas de entrantes. Haz clic en una receta para más detalles.")
+                .setMessage("Esta actividad muestra recetas de panadería. Haz clic en una receta para más detalles.")
                 .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
                 .show();
     }

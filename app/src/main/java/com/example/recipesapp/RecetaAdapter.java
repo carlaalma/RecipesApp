@@ -29,6 +29,7 @@ public class RecetaAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
+
         return recetas.get(position);
     }
 

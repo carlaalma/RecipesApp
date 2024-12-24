@@ -1,6 +1,7 @@
 package com.example.recipesapp.activities;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,9 +21,35 @@ public class SegundosActivity extends AppCompatActivity {
 
 
         List<Receta> recetas = new ArrayList<>();
-        recetas.add(new Receta("Dorada al Horno", "Pescado dorado al horno con patatas y limón", R.drawable.dorada_horno));
-        recetas.add(new Receta("Filete de Ternera con Salsa de Champiñones", "Jugosa ternera servida con una cremosa salsa de champiñones", R.drawable.filete_ternera));
-        recetas.add(new Receta("Tortilla Española", "Tortilla de patatas clásica con huevo y cebolla", R.drawable.tortilla));
+        recetas.add(new Receta(
+                "Dorada al Horno",
+                "Pescado dorado al horno con patatas y limón.",
+
+                "",
+                "Dorada, patatas, limón, aceite de oliva, ajo, perejil, sal",
+                "1. Coloca las patatas en la bandeja. \n2. Pon la dorada encima y aliña con limón, ajo y perejil. \n3. Hornea hasta que esté dorada.",
+                R.drawable.dorada_horno
+        ));
+
+        recetas.add(new Receta(
+                "Filete de Ternera con Salsa de Champiñones",
+                "Jugosa ternera servida con una cremosa salsa de champiñones.",
+
+                "",
+                "Filetes de ternera, champiñones, nata, cebolla, ajo, mantequilla, sal, pimienta",
+                "1. Cocina los filetes. \n2. Prepara la salsa con champiñones, nata y mantequilla. \n3. Sirve la carne con la salsa encima.",
+                R.drawable.filete_ternera
+        ));
+
+        recetas.add(new Receta(
+                "Tortilla Española",
+                "Tortilla de patatas clásica con huevo y cebolla.",
+
+                "",
+                "Patatas, huevos, cebolla, aceite de oliva, sal",
+                "1. Fríe las patatas con la cebolla. \n2. Mezcla con los huevos batidos. \n3. Cocina en una sartén hasta que cuaje.",
+                R.drawable.tortilla
+        ));
 
 
         ListView listView = findViewById(R.id.list_recetas);
@@ -42,11 +69,19 @@ public class SegundosActivity extends AppCompatActivity {
             }
             return false;
         });
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Receta selectedReceta = (Receta) parent.getItemAtPosition(position); // Obtener la receta seleccionada
+            Intent intent = new Intent(SegundosActivity.this, DetalleRecetaActivity.class);
+            intent.putExtra("receta", selectedReceta); // Pasar la receta seleccionada
+            startActivity(intent);
+        });
+
     }
     private void showAboutDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Acerca de")
-                .setMessage("Esta actividad muestra recetas de entrantes. Haz clic en una receta para más detalles.")
+                .setMessage("Esta actividad muestra recetas de segundos platos. Haz clic en una receta para más detalles.")
                 .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
                 .show();
     }

@@ -3,6 +3,7 @@ package com.example.recipesapp.activities;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,9 +26,31 @@ public class EntrantesActivity extends AppCompatActivity {
 
 
         List<Receta> recetas = new ArrayList<>();
-        recetas.add(new Receta("Bruschetta", "Pan tostado con tomate y albahaca", R.drawable.bruschetta));
-        recetas.add(new Receta("Ensalada César", "Ensalada con pollo, lechuga y parmesano", R.drawable.ensalada_cesar));
-        recetas.add(new Receta("Gazpacho", "Sopa fría de tomate y verduras", R.drawable.gazpacho));
+        recetas.add(new Receta(
+                "Bruschetta",
+                "Pan tostado con tomate y albahaca",
+                "",
+                "Pan, tomate, albahaca, aceite de oliva, sal",
+                "1. Tuesta el pan. \n2. Añade el tomate y la albahaca. \n3. Rocía con aceite de oliva y sal.",
+                R.drawable.bruschetta
+        ));
+        recetas.add(new Receta(
+                "Ensalada César",
+                "Ensalada con pollo, lechuga y parmesano",
+                "",
+                "Lechuga, pollo, parmesano, croutons, aderezo César",
+                "1. Corta la lechuga. \n2. Cocina el pollo. \n3. Mezcla con el aderezo y los demás ingredientes.",
+                R.drawable.ensalada_cesar
+        ));
+
+        recetas.add(new Receta(
+                "Gazpacho",
+                "Sopa fría de tomate y verduras",
+                "",
+                "Tomate, pimiento, pepino, ajo, pan, aceite de oliva, vinagre, sal",
+                "1. Mezcla todos los ingredientes. \n2. Licua hasta obtener una textura suave. \n3. Refrigera antes de servir.",
+                R.drawable.gazpacho
+        ));
 
 
         ListView listView = findViewById(R.id.list_recetas);
@@ -49,7 +72,17 @@ public class EntrantesActivity extends AppCompatActivity {
             return false;
         });
 
+
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Receta selectedReceta = (Receta) parent.getItemAtPosition(position); // Obtener la receta seleccionada
+            Intent intent = new Intent(EntrantesActivity.this, DetalleRecetaActivity.class);
+            intent.putExtra("receta", selectedReceta); // Pasar la receta seleccionada
+            startActivity(intent);
+        });
+
     }
+
+
 
     private void showAboutDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

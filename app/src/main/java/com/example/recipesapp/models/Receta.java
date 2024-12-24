@@ -1,6 +1,7 @@
 package com.example.recipesapp.models;
 
-public class Receta {
+public class Receta implements java.io.Serializable {
+    private int id;
     private String titulo;
     private String descripcion;
     private String categoria;
@@ -25,52 +26,52 @@ public class Receta {
         this.imagenResId = imagenResId;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public Receta(int id, String titulo, String descripcion, String categoria, String imagen, String ingredientes, String pasos) {
+        this.id = id;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.categoria = categoria;
+        this.imagen = imagen;
+        this.ingredientes = ingredientes;
+        this.pasos = pasos;
+    }
+    public Receta(String titulo, String descripcion, String imagen, String ingredientes, String pasos, int imagenResId) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.categoria = ""; // Asignar vacío si no se proporciona
+        this.imagen = imagen;
+        this.ingredientes = ingredientes;
+        this.pasos = pasos;
+        this.imagenResId = imagenResId;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    // Getters y setters
+    public int getId() {
+        return id;
+    }
+
+    public String getTitulo() {
+        return titulo;
     }
 
     public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public String getCategoria() {
         return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
     }
 
     public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
-    }
-
     public String getIngredientes() {
         return ingredientes;
     }
 
-    public void setIngredientes(String ingredientes) {
-        this.ingredientes = ingredientes;
-    }
-
     public String getPasos() {
         return pasos;
-    }
-
-    public void setPasos(String pasos) {
-        this.pasos = pasos;
     }
 
     public int getImagenResId() {
@@ -81,3 +82,5 @@ public class Receta {
         this.imagenResId = imagenResId;
     }
 }
+
+
